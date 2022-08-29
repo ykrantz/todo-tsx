@@ -1,0 +1,20 @@
+.HomePage-container{
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 10vh;
+}
+
+.HomePage-InputAndAdd{
+    display: flex;
+    justify-content: center;
+    margin-top: 8vh;
+    
+}
+.HomePage-buttton{
+    background-color:#01FF70       ;
+    border-radius: 5px;
+}
+
+.HomePage-InputTodo-input{
+    /* background-color: aqua; margin: 0 auto; width: 50%; */
+}

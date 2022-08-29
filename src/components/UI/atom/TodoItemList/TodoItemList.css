@@ -1,0 +1,23 @@
+
+.TodoItemList-todoItem{
+    /* text-align: left; */
+    text-align: center;
+    /* margin-left: 30%; */
+    margin-top: 1vh;
+    /* display: flex; */
+}
+.TodoItemList-todoText{
+    color: blue;
+    margin-left: 3vw;
+    margin-right:  3vw;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.TodoItemList-deleteButton{
+    border-radius: 5px;
+    border: 0.5px solid gray;
+}
