@@ -15,11 +15,9 @@ const HomePage = () => {
   const [counter, setCounter] = useState(todos.length + 1);
 
   const toggleTodo = (selectedTodo: Todo) => {
-    console.log({ selectedTodo });
     const newTodosList: Todo[] = todos.map((todo: Todo) =>
       todo === selectedTodo ? { ...todo, complete: !todo.complete } : todo
     );
-    console.log({ newTodosList });
 
     setTodos(newTodosList);
   };
@@ -28,7 +26,6 @@ const HomePage = () => {
     const newTodosList: Todo[] = todos.filter(
       (todo: Todo) => todo !== selectedTodo
     );
-    console.log({ newTodosList });
 
     setTodos(newTodosList);
   };

@@ -1,3 +1,9 @@
+
+
+body{
+    background:linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url("../../assets/images/to-do-ge1ff86d56_640.jpg");
+    /* background-size: cover; */
+}
 .HomePage-container{
     margin-left: 5vw;
     margin-right: 5vw;
@@ -17,4 +23,11 @@
 
 .HomePage-InputTodo-input{
     /* background-color: aqua; margin: 0 auto; width: 50%; */
+}
+
+@media only screen and (min-width: 1200px){
+   body{
+     
+        background-size: cover;
+   }
 }
