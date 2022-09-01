@@ -1,0 +1,14 @@
+.AddInputTodo-InputAndAdd{
+    display: flex;
+    justify-content: center;
+    margin-top: 8vh;
+    
+}
+.AddInputTodo-buttton{
+    background-color:#01FF70       ;
+    border-radius: 5px;
+}
+
+.AddInputTodo-InputTodo-input{
+    /* background-color: aqua; margin: 0 auto; width: 50%; */
+}

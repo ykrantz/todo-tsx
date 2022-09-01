@@ -1,7 +1,9 @@
 import { useState } from "react";
+import TodoContex from "../../contex/todoContex";
 import { Todo } from "../../types/types";
 import InputTodo from "../UI/atom/InputTodo/InputTodo";
 import TodosList from "../UI/atom/TodosList/TodosList";
+import AddInputTodo from "../UI/elements/AddInputTodo/AddInputTodo";
 import "./HomePage.css";
 
 const initialTodosList: Todo[] = [
@@ -30,52 +32,64 @@ const HomePage = () => {
     setTodos(newTodosList);
   };
 
-  const handleInputText = (text: string) => {
-    setInputText(text);
-  };
+  // const handleInputText = (text: string) => {
+  //   setInputText(text);
+  // };
 
-  const handleAddTodo = (text: string) => {
-    setCounter((currenCounter) => currenCounter + 1);
-    setTodos((currentTodos) => [
-      ...currentTodos,
-      { id: counter, text: text, complete: false },
-    ]);
-    setInputText("");
-  };
+  // const handleAddTodo = (text: string) => {
+  //   setCounter((currenCounter) => currenCounter + 1);
+  //   setTodos((currentTodos) => [
+  //     ...currentTodos,
+  //     { id: counter, text: text, complete: false },
+  //   ]);
+  //   setInputText("");
+  // };
 
   return (
     <div>
-      <div className="HomePage-container">
-        <h1>Todo List:</h1>
-        <div className="HomePage-InputAndAdd">
-          <button
-            className="HomePage-buttton"
-            onClick={() => handleAddTodo(inputText)}
-            disabled={inputText === ""}
-          >
-            ➕
-          </button>
+      <TodoContex.Provider
+        value={{
+          todos,
+          setTodos,
+          inputText,
+          setInputText,
+          counter,
+          setCounter,
+        }}
+      >
+        <div className="HomePage-container">
+          <h1>Todo List:</h1>
+          <AddInputTodo />
+          {/* <div className="HomePage-InputAndAdd">
+            <button
+              className="HomePage-buttton"
+              onClick={() => handleAddTodo(inputText)}
+              disabled={inputText === ""}
+            >
+              ➕
+            </button>
 
-          <div className="HomePage-InputTodo-input">
-            <InputTodo
-              handleInputText={handleInputText}
-              inputText={inputText}
-            />
-          </div>
-          <button
-            className="HomePage-buttton"
-            onClick={() => handleInputText("")}
-            disabled={inputText === ""}
-          >
-            ❌
-          </button>
+            <div className="HomePage-InputTodo-input">
+              <InputTodo
+                handleInputText={handleInputText}
+                inputText={inputText}
+              />
+            </div>
+            <button
+              className="HomePage-buttton"
+              onClick={() => handleInputText("")}
+              disabled={inputText === ""}
+            >
+              ❌
+            </button>
+          </div> */}
+          <TodosList
+            todosList={todos}
+            toggleTodo={toggleTodo}
+            deleteTodo={deleteTodo}
+          />
         </div>
-        <TodosList
-          todosList={todos}
-          toggleTodo={toggleTodo}
-          deleteTodo={deleteTodo}
-        />
-      </div>
+      </TodoContex.Provider>
     </div>
   );
 };
