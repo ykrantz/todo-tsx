@@ -9,7 +9,6 @@ type AppProp = {
   deleteTodo: ChangeTodoType;
 };
 
-// const Todo = ({ todo }: AppProp): JSX.Element => {
 const TodoItemList: React.FC<AppProp> = ({ todo, toggleTodo, deleteTodo }) => {
   return (
     <div className="TodoItemList-todoItem">

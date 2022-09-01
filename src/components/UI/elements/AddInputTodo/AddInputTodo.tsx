@@ -3,30 +3,23 @@ import todoContex from "../../../../contex/todoContex";
 import InputTodo from "../../atom/InputTodo/InputTodo";
 import "./AddInputTodo.css";
 
-// type AppProp = {
-//   inputText: string;
-//   handleInputText: HandleInputTextType;
-// };
-
-// const Todo = ({ todo }: AppProp): JSX.Element => {
-// const AddInputTodo: React.FC<AppProp> = ({  }) => {
 const AddInputTodo = () => {
-  const todoContext = useContext(todoContex);
+  const todoCtx = useContext(todoContex);
 
   const handleAddTodo = (text?: string) => {
     if (typeof text === "undefined") return;
 
-    todoContext?.setCounter(todoContext?.counter + 1);
-    todoContext?.setTodos([
-      ...todoContext?.todos,
-      { id: todoContext?.counter, text: text, complete: false },
+    todoCtx?.setCounter(todoCtx?.counter + 1);
+    todoCtx?.setTodos([
+      ...todoCtx?.todos,
+      { id: todoCtx?.counter, text: text, complete: false },
     ]);
-    todoContext?.setInputText("");
+    todoCtx?.setInputText("");
   };
 
   const handleInputText = (text?: string) => {
     if (typeof text === "undefined") return;
-    todoContext?.setInputText(text);
+    todoCtx?.setInputText(text);
   };
 
   return (
@@ -34,22 +27,19 @@ const AddInputTodo = () => {
       <div className="AddInputTodo-InputAndAdd">
         <button
           className="AddInputTodo-buttton"
-          onClick={() => handleAddTodo(todoContext?.inputText)}
-          disabled={todoContext?.inputText === ""}
+          onClick={() => handleAddTodo(todoCtx?.inputText)}
+          disabled={todoCtx?.inputText === ""}
         >
           ➕
         </button>
 
         <div className="AddInputTodo-InputTodo-input">
-          <InputTodo
-          // handleInputText={handleInputText}
-          // inputText={todoContext?.inputText}
-          />
+          <InputTodo />
         </div>
         <button
           className="HomePage-buttton"
           onClick={() => handleInputText("")}
-          disabled={todoContext?.inputText === ""}
+          disabled={todoCtx?.inputText === ""}
         >
           ❌
         </button>
